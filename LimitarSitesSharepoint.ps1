@@ -3,14 +3,17 @@
 # A validação e configuração é feita site a site
 # Criado por Eduardo Popovici
 
+# Conectar no Tenant e autenticar
 # $AdminUrl = "https://EMPRESA-admin.sharepoint.com"
 # Connect-SPOService -Url $AdminUrl
 
-# Definições
+# Definições de busca
+# Criação de variaveis
 $UsageThreshold = 10240   # 10 GB
 $Quota = 15360           # 15 GB
 $Warning = 97
 
+# validação e aplicação de configurações
 Get-SPOSite -Limit All | Where-Object { $_.Template -ne "SPSPERS" } | ForEach-Object {
 
     $Site = $_
